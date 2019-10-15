@@ -4,13 +4,13 @@ import { AppComponent } from './components/app/app.component';
 import { SharedModule } from '../shared/shared.module';
 import { MapComponent } from '../map/component/map/map.component';
 import { CoreRoutingModule } from './core-routing.module';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, MapComponent, NavBarComponent
+    AppComponent, MapComponent
   ],
   imports: [
     SharedModule,

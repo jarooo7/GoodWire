@@ -5,8 +5,13 @@ import {MatButtonModule,
   MatIconModule, MatBadgeModule,
   MatProgressSpinnerModule,
   MatToolbarModule} from '@angular/material';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { AgmCoreModule } from '@agm/core';
+
+
 
 const material = [
+  MatSidenavModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatIconModule,
@@ -23,6 +28,7 @@ const material = [
   ],
   exports: [
     CommonModule,
-    material]
+    material
+  ]
 })
 export class SharedModule { }
