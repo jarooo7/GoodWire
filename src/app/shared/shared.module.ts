@@ -6,7 +6,7 @@ import {MatButtonModule,
   MatProgressSpinnerModule,
   MatToolbarModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { AgmCoreModule } from '@agm/core';
+
 
 
 

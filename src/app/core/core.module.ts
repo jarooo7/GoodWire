@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './components/app/app.component';
 import { SharedModule } from '../shared/shared.module';
 import { MapComponent } from '../map/component/map/map.component';
+import { AngularYandexMapsModule } from 'angular8-yandex-maps';
 import { CoreRoutingModule } from './core-routing.module';
 
 
@@ -13,6 +14,7 @@ import { CoreRoutingModule } from './core-routing.module';
     AppComponent, MapComponent
   ],
   imports: [
+    AngularYandexMapsModule.forRoot('43731ef9-5a6d-4bc5-91d0-baefba8c1982'),
     SharedModule,
     CoreRoutingModule
   ],
