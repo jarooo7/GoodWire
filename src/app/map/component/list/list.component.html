@@ -1,0 +1,7 @@
+<mat-nav-list>
+  <a  *ngFor="let item of data.search"  mat-list-item (click)="openLink(item)">
+    <span mat-line>{{item.address.label}}</span>
+    <span mat-line>{{item.address.county}} {{item.address.postalCode}}</span>
+  </a>
+
+</mat-nav-list>

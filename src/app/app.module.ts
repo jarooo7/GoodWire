@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { MapComponent } from './map/component/map/map.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   imports: [
     BrowserModule,

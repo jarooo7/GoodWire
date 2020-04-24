@@ -1,0 +1,79 @@
+<div class="nav">
+
+  <div class="bar">
+    <a href="#">
+      <img class="logo" [ngClass]="classLogo" [src]="logo">
+    </a>
+    
+    <div style="margin-bottom: 30px; transition: visibility 2s, margin-left 2s, height 3s  ;" [ngClass]="classOptions">
+      <h4>Czas</h4>
+    <mat-accordion class="range example-headers-align">
+     
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          
+          <mat-panel-description>
+            Przedział czasu
+            <mat-icon>date_range</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="p-4">
+          <div class="range">
+            <div class="row">
+              <div class="column">
+
+                <mat-form-field class="date">
+                  <mat-label>Od</mat-label>
+                  <input matInput [matDatepicker]="picker1">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker1></mat-datepicker>
+                </mat-form-field>
+                <p>godzina: {{h1}}</p>
+                <mat-slider color="primary" [(ngModel)]="h1" tickInterval="1" min="0" max="23">
+                </mat-slider>
+              </div>
+              <div class="column">
+
+                <mat-form-field class="date">
+                  <mat-label>Do</mat-label>
+                  <input matInput [matDatepicker]="picker2">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi #picker2></mat-datepicker>
+                </mat-form-field>
+                <p>godzina: {{h2}}</p>
+                <mat-slider color="primary" [(ngModel)]="h2" tickInterval="1" min="0" max="23">
+                </mat-slider>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button mat-raised-button color="primary">Wybierz</button>
+      </mat-expansion-panel>
+     
+      <button mat-button style="width: 100%; padding: 0;">
+      <mat-expansion-panel hideToggle disabled>
+        <mat-expansion-panel-header>
+          
+          <mat-panel-description style="color: rgba(0,0,0,.54);">
+            Ostatnie dwie godziny
+            <mat-icon>schedule</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </button>
+
+    </mat-accordion>
+    </div>
+
+ 
+
+    <div class="options">
+      <button class="options" mat-fab color="warn" (click)="showBar()">
+        <mat-icon>{{icon}}
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+</div>
