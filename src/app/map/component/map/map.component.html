@@ -1,1 +1,18 @@
-<p>map works!</p>
+<div class="search-panel">
+  <div class="search">
+    <mat-form-field class="example-full-width" style="width: 30vw;">
+      <mat-label>Wyszukaj</mat-label>
+      <input matInput name="search" [(ngModel)]="text">
+    </mat-form-field>
+    <button mat-fab color="primary" (click)="searchCity()">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+    </button>
+  </div>
+</div>
+<div class="map-container">
+  <div class="map-frame">
+    <div id="map"></div>
+  </div>
+</div>
+<app-bar (twoHEmitter)="twoH()" (rangeEmitter)="range($event)"></app-bar>
+<app-control (position)="position()" (zoomIn)="zoomIn()" (zoomOut)="zoomOut()" (logout)="logout()"></app-control>

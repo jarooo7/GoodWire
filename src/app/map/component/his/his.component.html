@@ -1,0 +1,70 @@
+<h1 mat-dialog-title>Historia </h1>
+<div mat-dialog-content class="a">
+  <mat-form-field class="date">
+    <mat-label>Dzień</mat-label>
+    <input matInput [matDatepicker]="picker1" [(ngModel)]="d1">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker1></mat-datepicker>
+  </mat-form-field>
+  <p>w promieniu: {{k1}} km</p>
+  <mat-slider color="primary" [(ngModel)]="k1" tickInterval="0.5" min="0.5" max="25">
+  </mat-slider>
+  <button mat-raised-button color="primary" (click)="load()">Wybierz</button>
+  <h2>Pyły</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>Wilgotność</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors2" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>Temperatura</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData3" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors2" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>Ciśnienie</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData4" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors2" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>Siarkowodór</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData5" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>Amoniak</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData7" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>VOC</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData8" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>Dwutlenek węgla</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData6" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <h2>Tlenki azotu</h2>
+  <div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData9" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+</div>
+<div mat-dialog-actions>
+
+</div>

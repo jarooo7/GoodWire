@@ -1,0 +1,76 @@
+<mat-nav-list>
+  <!-- <a   mat-list-item >
+  <span mat-line>ADSADSADSADSAD</span>
+  <span mat-line>ADSADSADSADSAD</span>
+  <span mat-line>ADSADSADSADSAD</span>
+</a> -->
+
+  <div style=" max-width: 550px;">
+    <div class="title">
+      <mat-icon style="font-size: 80px;">{{emot}}</mat-icon>
+      <h1 class="mat-h1" style="margin-left: 60px;">{{text}}</h1>
+      <h3>odczytano {{days}} dni i {{time}} godziny temu</h3>
+      <button mat-raised-button color="primary" (click)="openDialog()">Wyświetl historie</button>
+      <button mat-raised-button *ngIf="flaga" color="warn" (click)="del()">Usuń</button>
+    </div>
+    <img style=" max-width: 100%; height: auto;" [src]="tlo">
+  </div>
+  <div>
+
+
+
+    <p class="mat-h2 info-text" style="margin-left: 10px;">PYŁY</p>
+    <hr>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/pm10.png" class="icon">
+      <span class="mat-h2 info-text c1">PM10</span>
+      <span class="mat-h2 info-text c2">{{data.marker.pm10}} µg/m³</span></div>
+
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/pm25.png" class="icon">
+      <span class="mat-h2 info-text c1">PM2,5</span>
+      <span class="mat-h2 info-text c2">{{data.marker.pm25}} µg/m³</span></div>
+
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/pm1.png" class="icon">
+      <span class="mat-h2 info-text c1">PM1</span>
+      <span class="mat-h2 info-text c2">{{data.marker.pm1}} µg/m³</span></div>
+    <p class="mat-h2 info-text" style="margin-left: 10px; margin-top: 15px;">DANE POGODOWE</p>
+    <hr>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/temp.png" class="icon">
+      <span class="mat-h2 info-text c1">Temperatura</span>
+      <span class="mat-h2 info-text c2">{{data.marker.temperature}} °C</span></div>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/press.png" class="icon">
+      <span class="mat-h2 info-text c1">Cisnienie</span>
+      <span class="mat-h2 info-text c2">{{data.marker.pressure}} hPa</span></div>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/hum.png" class="icon">
+      <span class="mat-h2 info-text c1">Wilgotność</span>
+      <span class="mat-h2 info-text c2">{{data.marker.humidity}} %</span></div>
+    <p class="mat-h2 info-text" style="margin-left: 10px; margin-top: 15px;">GAZY</p>
+    <hr>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/H2S.png" class="icon">
+      <span class="mat-h2 info-text c1">Siarkowodór</span>
+      <span class="mat-h2 info-text c2">{{data.marker.HS}} ppm</span></div>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/NH3.png" class="icon">
+      <span class="mat-h2 info-text c1">Amoniak</span>
+      <span class="mat-h2 info-text c2">{{data.marker.NH}} ppm</span></div>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/VOC.png" class="icon">
+      <span class="mat-h2 info-text c1">Lotne zwiazki organiczne</span>
+      <span class="mat-h2 info-text c2">{{data.marker.VO}} ppm</span></div>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/CO2.png" class="icon">
+      <span class="mat-h2 info-text c1">Dwutlelek węgla</span>
+      <span class="mat-h2 info-text c2">{{data.marker.HS}} ppm</span></div>
+    <div mat-list-item class="info-center">
+      <img src="../../../../assets/img/NOX.png" class="icon">
+      <span class="mat-h2 info-text c1">Tlenki azotu</span>
+      <span class="mat-h2 info-text c2">{{data.marker.NO}} ppm</span></div>
+      <br>
+  </div>
+</mat-nav-list>
