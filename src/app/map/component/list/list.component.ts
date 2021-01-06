@@ -10,7 +10,8 @@ import {MAT_BOTTOM_SHEET_DATA} from '@angular/material/bottom-sheet';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<ListComponent>,@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
+  constructor(private _bottomSheetRef: MatBottomSheetRef<ListComponent>,
+    @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
 
   openLink(item): void {   
     this._bottomSheetRef.dismiss(item); 

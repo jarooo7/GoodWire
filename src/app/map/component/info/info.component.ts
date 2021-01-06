@@ -1,6 +1,10 @@
 import { Component,Inject, OnInit, } from '@angular/core';
 import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { MarcerModel } from 'src/app/shared/marcer.model';
+import { MatDialog } from '@angular/material';
+import { HisComponent } from '../his/his.component';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-info',
@@ -11,11 +15,13 @@ export class InfoComponent implements OnInit  {
   tlo:string;
   text:string;
   emot:string;
+  flaga = false;
   time: number;
   days: number;
 
-  constructor(private _bottomSheetRef: MatBottomSheetRef<InfoComponent>,@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
+  constructor(public dialog: MatDialog,public http: HttpClient,private _bottomSheetRef: MatBottomSheetRef<InfoComponent>,@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
   ngOnInit(): void {
+    this.flaga=localStorage.getItem('token')!=null
     const current = new Date();
     const create = new Date(this.data.marker.created_at);
     this.days=(Math.trunc((current.getTime()-create.getTime()) / (1000 * 3600*24)));
@@ -51,5 +57,19 @@ export class InfoComponent implements OnInit  {
       this.emot="sentiment_very_dissatisfied";
     }
   }
+  
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(HisComponent, {
+      data: {lat: this.data.marker.lat,lng: this.data.marker.lng,dt: this.data.marker.created_at}
+    });
+    console.log("i",this.data.marker.created_at);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  del(){
+    this.http.delete('http://goodwire.cba.pl/api/survey/'+this.data.marker.id).subscribe(e=>console.log(e)
+    );
+  }
 }

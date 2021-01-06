@@ -10,7 +10,7 @@
   width: 140px;
 }
 .max{
-  width: 250px;
+  width: 200px;
 }
 
 
@@ -21,6 +21,10 @@
     
      
 }
+.alert{
+  background: red;
+  color: white;
+}
 .show{
  
   height: 100%;
@@ -30,7 +34,7 @@
     
 }
 
-.nav{
+.nav-z{
   
   z-index: 25;
   position: absolute;

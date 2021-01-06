@@ -13,21 +13,33 @@ import {MatButtonModule,
   MatGridListModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatExpansionModule} from '@angular/material';
+  MatExpansionModule,
+  MatSnackBarModule} from '@angular/material';
+  import {MatTableModule} from '@angular/material/table';
+  import {MatPaginatorModule} from '@angular/material/paginator';
+  import {MatSelectModule} from '@angular/material/select';
+
+  import {MatDialogModule} from '@angular/material/dialog';
+  import { ChartsModule } from 'ng2-charts';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
 const material = [
+  MatPaginatorModule,
+  MatTableModule,
   MatSidenavModule,
+  MatTabsModule,
   MatButtonModule,
   MatListModule,
   MatButtonToggleModule,
   MatIconModule,
   MatSliderModule,
   MatInputModule,
+  MatDialogModule,
   MatBottomSheetModule,
   MatBadgeModule,
   MatDatepickerModule,
@@ -36,14 +48,16 @@ const material = [
   MatToolbarModule,
   MatExpansionModule,
   MatNativeDateModule ,
-  MatGridListModule
+  MatGridListModule,
+  MatSelectModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    
+    ChartsModule,
     HttpClientModule,
     material
   ],

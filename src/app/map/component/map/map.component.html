@@ -14,5 +14,5 @@
     <div id="map"></div>
   </div>
 </div>
-<app-bar></app-bar>
-<app-control (position)="position()" (zoomIn)="zoomIn()" (zoomOut)="zoomOut()"></app-control>
+<app-bar (twoHEmitter)="twoH()" (rangeEmitter)="range($event)"></app-bar>
+<app-control (position)="position()" (zoomIn)="zoomIn()" (zoomOut)="zoomOut()" (logout)="logout()"></app-control>

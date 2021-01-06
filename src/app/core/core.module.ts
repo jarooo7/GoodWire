@@ -11,17 +11,25 @@ import { BarComponent } from '../map/component/bar/bar.component';
 import { ControlComponent } from '../map/component/control/control.component';
 import { ListComponent } from '../map/component/list/list.component';
 import { InfoComponent } from '../map/component/info/info.component';
+import { HisComponent } from '../map/component/his/his.component';
+import { ChartsModule } from 'ng2-charts';
+import { LoginComponent } from '../login/login/login.component';
+import { AdminpanelComponent } from '../login/adminpanel/adminpanel.component';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, MapComponent,BarComponent,ControlComponent,ListComponent,InfoComponent
+    AppComponent, MapComponent,BarComponent,ControlComponent,
+    ListComponent,InfoComponent,HisComponent,LoginComponent,
+    AdminpanelComponent
   ],
   imports: [
     SharedModule,
     CoreRoutingModule,
     FormsModule,
+    ChartsModule,
     LeafletModule.forRoot(),
     HereMapsModule.forRoot({
       apiKey: 'ntYFTfinNKdLttvqAGcHVimHEkVDOWwPAJLqOJmpHSE',
@@ -30,7 +38,7 @@ import { InfoComponent } from '../map/component/info/info.component';
       libraries: ['core', 'service']
     }),
   ],
-  entryComponents:[ListComponent,InfoComponent]
+  entryComponents:[ListComponent,InfoComponent,HisComponent]
 })
 export class CoreModule {
   constructor(

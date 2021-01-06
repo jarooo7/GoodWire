@@ -6,6 +6,7 @@ import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router';
 import { MapComponent } from './map/component/map/map.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     CoreModule.forRoot(),
     RouterModule,
+    ChartsModule,
     BrowserAnimationsModule
   ],
   providers: [],

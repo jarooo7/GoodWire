@@ -1,0 +1,17 @@
+<div class="tlo">
+  <div style="padding:50px">
+
+  </div>
+  <div class="center">
+    <img class="logo" class="logo" src="../../../../assets/img/logo4.png">
+    <mat-form-field class="example-full-width" style="width: 100%;">
+      <mat-label>Login</mat-label>
+      <input matInput name="admin-gw" [(ngModel)]="login" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="width: 100%;">
+      <mat-label>Hasło</mat-label>
+      <input type="password" matInput name="password-admin-gw" [(ngModel)]="password" autocomplete="off">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="sigin()">Zaloguj się</button>
+  </div>
+</div>

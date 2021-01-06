@@ -1,0 +1,173 @@
+<table class="example-full-width a." cellspacing="0">
+  <tr>
+    <td><img class="logo" (click)="logo()" class="logo" src="../../../../assets/img/logo4.png">
+    </td>
+    <td style="text-align: right;">
+      <button mat-raised-button color="primary" style="margin-right: 25px;" (click)="logout()">Wyloguj się</button>
+    </td>
+  </tr>
+</table>
+<hr>
+<mat-tab-group animationDuration="2000ms"><!--kontener przechowujący zakładki-->
+  <mat-tab label="Pomiary"> <!--utworzenie zakładki Pomiary-->
+    <!--Ustawianie przedziału czasu-->
+    <mat-form-field class="date"> 
+      <mat-label>Dzień</mat-label>
+      <input matInput [matDatepicker]="picker1" [(ngModel)]="d1">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker1></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="load()">Wybierz</button>
+    <br>
+    <!-- *****************************************************-->
+    <div class="mat-elevation-z8"><!--poczatek treści zakładki-->
+      <table mat-table [dataSource]="dataSource"><!--poczatek tabeli pomiarow-->
+        <ng-container matColumnDef="id"> <!--początek kolumny-->
+          <th mat-header-cell *matHeaderCellDef> Usuń </th><!--nagłówek kolumny-->
+          <!--przekazanie elementow obiektu jako komórki kolumny-->
+          <td mat-cell *matCellDef="let element">
+            <button (click)="del(element.id)" mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="pm1">
+          <th mat-header-cell *matHeaderCellDef> PM1 </th>
+          <td mat-cell *matCellDef="let element"> {{element.pm1}} </td>
+        </ng-container>
+        <ng-container matColumnDef="pm25">
+          <th mat-header-cell *matHeaderCellDef> PM2,5 </th>
+          <td mat-cell *matCellDef="let element"> {{element.pm25}} </td>
+        </ng-container>
+        <ng-container matColumnDef="pm10">
+          <th mat-header-cell *matHeaderCellDef> PM10 </th>
+          <td mat-cell *matCellDef="let element"> {{element.pm10}} </td>
+        </ng-container>
+        <ng-container matColumnDef="created_at">
+          <th mat-header-cell *matHeaderCellDef> Data dodania </th>
+          <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+        </ng-container>
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef> Lokalizacja </th>
+          <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+        </ng-container>
+        <ng-container matColumnDef="device_id">
+          <th mat-header-cell *matHeaderCellDef> ID urządzenia </th>
+          <td mat-cell *matCellDef="let element"> {{element.device_id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="temperature">
+          <th mat-header-cell *matHeaderCellDef> Temperatura </th>
+          <td mat-cell *matCellDef="let element"> {{element.temperature}} </td>
+        </ng-container>
+        <ng-container matColumnDef="pressure">
+          <th mat-header-cell *matHeaderCellDef> Ciśnienie </th>
+          <td mat-cell *matCellDef="let element"> {{element.pressure}} </td>
+        </ng-container>
+        <ng-container matColumnDef="humidity">
+          <th mat-header-cell *matHeaderCellDef> Wilgotność </th>
+          <td mat-cell *matCellDef="let element"> {{element.humidity}} </td>
+        </ng-container>
+        <ng-container matColumnDef="H2S">
+          <th mat-header-cell *matHeaderCellDef> H2S </th>
+          <td mat-cell *matCellDef="let element"> {{element.HS}} </td>
+        </ng-container>
+        <ng-container matColumnDef="NH3">
+          <th mat-header-cell *matHeaderCellDef> NH3 </th>
+          <td mat-cell *matCellDef="let element"> {{element.NH}} </td>
+        </ng-container>
+        <ng-container matColumnDef="NOx">
+          <th mat-header-cell *matHeaderCellDef> NOx </th>
+          <td mat-cell *matCellDef="let element"> {{element.NO}} </td>
+        </ng-container>
+        <ng-container matColumnDef="VOC">
+          <th mat-header-cell *matHeaderCellDef> VOC </th>
+          <td mat-cell *matCellDef="let element"> {{element.VO}} </td>
+        </ng-container>
+        <ng-container matColumnDef="CO2">
+          <th mat-header-cell *matHeaderCellDef> CO2 </th>
+          <td mat-cell *matCellDef="let element"> {{element.CO}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[6, 10, 14]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-tab>
+  <mat-tab label="Urządzenia">
+    <div class="mat-elevation-z8">
+      <button mat-raised-button color="primary" (click)="loadDevice()">Wczytaj</button>
+      <table mat-table [dataSource]="dataSource2">
+        <ng-container matColumnDef="key">
+          <th mat-header-cell *matHeaderCellDef> Klucz </th>
+          <td mat-cell [ngStyle]="{'background-color': color(element.state)}" *matCellDef="let element"> {{element.key}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="tel">
+          <th mat-header-cell *matHeaderCellDef> Numer telefonu </th>
+          <td mat-cell [ngStyle]="{'background-color': color(element.state)}" *matCellDef="let element"> {{element.tel}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef> Stan </th>
+          <td mat-cell [ngStyle]="{'background-color': color(element.state)}" *matCellDef="let element">
+            <mat-select *ngIf="element.state" style="width: 160px;" [(ngModel)]="element.state">
+              <mat-option (click)="zmien(element)" *ngFor="let optioni of option1" [value]="optioni.value">
+                {{optioni.viewValue}}
+              </mat-option>
+            </mat-select>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="created_at">
+          <th mat-header-cell *matHeaderCellDef> Data dodania </th>
+          <td mat-cell [ngStyle]="{'background-color': color(element.state)}" *matCellDef="let element">
+            {{element.created_at}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[6,10, 14]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-tab>
+  <mat-tab label="Klucze">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <button mat-raised-button color="primary" (click)="loadCode()">Wczytaj</button>
+        </td>
+        <td>
+          <mat-form-field class="example-form-field" style="width: 100%;">
+            <mat-label>Dodaj kod bazowy, format: AAAA-BBBB-CCCC-DDDD</mat-label>
+            <input matInput name="admin-gw" [(ngModel)]="pin" pattern="[A-Z]{4}-[A-Z]{4}-[A-Z]{4}-[A-Z]{4}"
+              autocomplete="off">
+          </mat-form-field>
+        </td>
+        <td>
+          <button mat-raised-button color="primary" (click)="addKey()">Dodaj</button>
+        </td>
+      </tr>
+    </table>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource3">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Usuń </th>
+          <td mat-cell *matCellDef="let element">
+            <button (click)="delK(element.id)" mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="created_at">
+          <th mat-header-cell *matHeaderCellDef> Data utworzenia</th>
+          <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+        </ng-container>
+        <ng-container matColumnDef="base_key">
+          <th mat-header-cell *matHeaderCellDef> Kod bazowy </th>
+          <td mat-cell *matCellDef="let element"> {{element.base_key}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[6,10, 14]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-tab>
+</mat-tab-group>
